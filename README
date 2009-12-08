@@ -1,0 +1,34 @@
+NAME
+    CatalystX::Controller::Sugar::ActionPack - Plugins
+
+VERSION
+    0.01
+
+DESCRIPTION
+    This distribution is a collection of CatalystX::Controller::Sugar
+    plugins.
+
+  CatalystX::Controller::Sugar::ActionPack::Default
+    This module acts as a default handler for a controller. It will either
+    server a file by its best knowledge or do "go('/error', ["not_found"])".
+
+  CatalystX::Controller::Sugar::ActionPack::End
+    This plugin should be injected into the Root controller, or a controller
+    with namespace set to "" (empty string). It provides something similar
+    to Catalyst::Action::RenderView.
+
+  CatalystX::Controller::Sugar::ActionPack::Error
+    Used to server custom error pages, which the webapp dispatch to.
+
+  CatalystX::Controller::Sugar::ActionPack::Merge
+    Provides an action which can serve multiple files in one request. The
+    reason for this is easier maintenance of css and js files, while having
+    less request to the web server.
+
+LICENSE
+    This library is free software, you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+AUTHOR
+    Jan Henning Thorsen - jhthorsen -at- cpan.org
+

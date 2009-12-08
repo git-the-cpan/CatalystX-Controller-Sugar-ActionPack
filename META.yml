@@ -1,0 +1,29 @@
+---
+abstract: Plugins
+author:
+  - 'Jan Henning Thorsen - jhthorsen -at- cpan.org'
+build_requires:
+  Catalyst::Runtime: 5.80013
+  ExtUtils::MakeMaker: 6.42
+  File::Find: 1.1
+  Test::More: 0.94
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.91'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: CatalystX-Controller-Sugar-ActionPack
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  CatalystX::Controller::Sugar: 0.04
+  File::Slurp: 9999.1
+  Moose: 0.8
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.01
