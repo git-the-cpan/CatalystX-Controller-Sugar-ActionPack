@@ -2,7 +2,7 @@ package CatalystX::Controller::Sugar::ActionPack::End;
 
 =head1 NAME
 
-CatalystX::Controller::Sugar::ActionPack::End
+CatalystX::Controller::Sugar::ActionPack::End - Alternative to C::A::RenderView
 
 =head1 DESCRIPTION
 

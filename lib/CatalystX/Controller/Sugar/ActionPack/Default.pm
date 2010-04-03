@@ -2,7 +2,7 @@ package CatalystX::Controller::Sugar::ActionPack::Default;
 
 =head1 NAME
 
-CatalystX::Controller::Sugar::ActionPack::Default
+CatalystX::Controller::Sugar::ActionPack::Default - Action for /*
 
 =head1 DESCRIPTION
 

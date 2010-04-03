@@ -1,16 +1,15 @@
 ---
-abstract: Plugins
+abstract: 'Cx::C::Sugar plugins'
 author:
   - 'Jan Henning Thorsen - jhthorsen -at- cpan.org'
 build_requires:
-  Catalyst::Runtime: 5.80013
+  Catalyst::Runtime: 5.80021
   ExtUtils::MakeMaker: 6.42
-  File::Find: 1.1
-  Test::More: 0.94
+  Test::More: 0.9
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.91'
+generated_by: 'Module::Install version 0.92'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,9 +20,10 @@ no_index:
     - inc
     - t
 requires:
-  CatalystX::Controller::Sugar: 0.04
+  CatalystX::Controller::Sugar: 0.07
   File::Slurp: 9999.1
-  Moose: 0.8
 resources:
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=CatalystX-Controller-Sugar-ActionPack
   license: http://dev.perl.org/licenses/
-version: 0.01
+  repository: http://github.com/jhthorsen/catalystx-controller-sugar-actionpack
+version: 0.02

@@ -2,11 +2,11 @@ package CatalystX::Controller::Sugar::ActionPack;
 
 =head1 NAME
 
-CatalystX::Controller::Sugar::ActionPack - Plugins
+CatalystX::Controller::Sugar::ActionPack - Cx::C::Sugar plugins
 
 =head1 VERSION
 
-0.01
+0.02
 
 =head1 DESCRIPTION
 
@@ -35,7 +35,7 @@ to the web server.
 
 =cut
 
-our $VERSION = "0.01";
+our $VERSION = '0.02';
 
 =head1 LICENSE
 

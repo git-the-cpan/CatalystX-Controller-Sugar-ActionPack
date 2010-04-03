@@ -2,7 +2,7 @@ package CatalystX::Controller::Sugar::ActionPack::Merge;
 
 =head1 NAME
 
-CatalystX::Controller::Sugar::ActionPack::Merge
+CatalystX::Controller::Sugar::ActionPack::Merge - Merge static files
 
 =head1 DESCRIPTION
 

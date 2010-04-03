@@ -1,8 +1,8 @@
 NAME
-    CatalystX::Controller::Sugar::ActionPack - Plugins
+    CatalystX::Controller::Sugar::ActionPack - Cx::C::Sugar plugins
 
 VERSION
-    0.01
+    0.02
 
 DESCRIPTION
     This distribution is a collection of CatalystX::Controller::Sugar

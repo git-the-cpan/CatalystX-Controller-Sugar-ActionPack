@@ -2,7 +2,7 @@ package CatalystX::Controller::Sugar::ActionPack::Error;
 
 =head1 NAME
 
-CatalystX::Controller::Sugar::ActionPack::Error
+CatalystX::Controller::Sugar::ActionPack::Error - Action for error pages
 
 =head1 DESCRIPTION
 
