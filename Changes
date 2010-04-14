@@ -1,12 +1,16 @@
 Revision history for CatalystX-Controller-Sugar-ActionPack
 
+0.03     Thu Apr 15 00:08:32 CEST 2010
+   - fix /default will also look inside root/base/
+   - add /default use cache
+
 0.02     Sat Apr  3 12:44:17 CEST 2010
    - updated t/
    - update Changes
 
-0.01 Sun Nov  8 21:03:00 CET 2009
+0.01     Sun Nov  8 21:03:00 CET 2009
    - Add Default, End, Error and Merge
    - Tests are missing
 
-0.00 Sun Nov  1 11:04:36 CET 2009
+0.00     Sun Nov  1 11:04:36 CET 2009
    - created repo

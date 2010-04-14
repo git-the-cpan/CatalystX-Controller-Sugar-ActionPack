@@ -2,7 +2,7 @@ package CatalystX::Controller::Sugar::ActionPack::Default;
 
 =head1 NAME
 
-CatalystX::Controller::Sugar::ActionPack::Default - Action for /*
+CatalystX::Controller::Sugar::ActionPack::Default
 
 =head1 DESCRIPTION
 
@@ -32,6 +32,8 @@ folder. "robots.txt" will therefor be translated to:
 
 use CatalystX::Controller::Sugar::Plugin;
 
+my %cache;
+
 =head1 ACTIONS
 
 =head2 Endpoint /*
@@ -49,20 +51,21 @@ Will C<go()> to C</error> unless the rules match the request.
 =cut
 
 chain '' => sub {
-    my $path = join '/', grep { /^\w/ } controller->{'namespace'}, @_;
-    my $base = c->config->{'root'};
+    my $path = join('/',
+                   grep { defined and length }
+                   controller->action_namespace, @_
+               );
     my $static;
 
-    if(-e "$base/$path.tt") {
-        stash template => "$path.tt";
-        return;
-    }
-    if(-e "$base/$path/default.tt") {
-        stash template => $path ? "$path/default.tt" : "default.tt";
+    # template
+    if(my $template = _find_template($path)) {
+        stash template => $template;
+        report debug => 'template=%s', $template if c->debug;
         return;
     }
 
-    $static = controller->{'serve_static'} || [];
+    # static files
+    $static = (controller->{'serve_static'} ||= []);
     $static = [$static] unless(ref $static eq 'ARRAY');
 
     if(grep { $path eq $_ } @$static) {
@@ -71,9 +74,40 @@ chain '' => sub {
         return; # c->detach will prevent this method from returning
     }
 
-    # if everything else fail...
+    # if everything fail...
     go '/error' => ['not_found'];
 };
+
+sub _find_template {
+    my $path = shift;
+    my $base = c->path_to('root');
+
+    # get from cache
+    if(my $template = $cache{$path}) {
+        if(-e "$base/$template") {
+            return $template;
+        }
+        else {
+            delete $cache{$path};
+        }
+    }
+
+    # find from disc
+    if(-e "$base/base/$path/default.tt") {
+        return $cache{$path} = $path ? "$path/default.tt" : "default.tt";
+    }
+    if(-e "$base/base/$path.tt") {
+        return $cache{$path} = "$path.tt";
+    }
+    if(-e "$base/$path/default.tt") {
+        return $cache{$path} = $path ? "$path/default.tt" : "default.tt";
+    }
+    if(-e "$base/$path.tt") {
+        return $cache{$path} = "$path.tt";
+    }
+
+    return;
+}
 
 =head1 LICENSE
 
