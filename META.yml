@@ -10,7 +10,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.91'
+generated_by: 'Module::Install version 0.92'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,11 +21,11 @@ no_index:
     - inc
     - t
 requires:
-  CatalystX::Controller::Sugar: 0.05
+  CatalystX::Controller::Sugar: 0.0703
   File::Slurp: 9999.1
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=CatalystX-Controller-Sugar-ActionPack
   homepage: http://search.cpan.org/dist/CatalystX-Controller-Sugar-ActionPack
   license: http://dev.perl.org/licenses/
   repository: git://github.com/jhthorsen/catalystx-controller-sugar-actionpack.git
-version: 0.03
+version: 0.0301

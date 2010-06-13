@@ -19,5 +19,5 @@ CatalystX::Controller::Sugar::ActionPack::Default->inject(
 is(request('/')->content, 'default.tt', '/');
 is(request('/foo')->content, 'foo.tt', '/foo');
 is(request('/foo/bar')->content, 'foo/bar.tt', '/foo/bar');
-like(request('/robots.txt')->content, qr{/robots.txt$}, '/robots.txt');
+like(request('/robots.txt')->content, qr{robots.txt$}, 'robots.txt');
 is(request('/errrr')->content, 'error/not_found.tt', '/errrr');
