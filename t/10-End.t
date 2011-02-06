@@ -16,18 +16,9 @@ is(request('/')->content,
     'text/html|charset=utf-8|index|__UNDEF__',
     '/'
 );
-is(request('/HEAD')->content,
-    '',
-    'req->method == HEAD'
-);
-like(request('/location')->content,
-    qr{This item has moved},
-    'redirect in action set'
-);
-is(request('/body/foo')->content,
-    'foo',
-    'body is set'
-);
+is(request('/HEAD')->content, '', 'req->method == HEAD');
+is(request('/location')->headers->{'location'}, 'somedomain.com', 'redirect in action set');
+is(request('/body')->content, "body_has_this_as_content\n", 'body is set');
 is(request('/title')->content,
     'text/html|charset=utf-8|hello world|__UNDEF__',
     'title is set'
@@ -51,10 +42,10 @@ sub test_plugin {
                 req->method('HEAD');
             }
             elsif($do eq 'location') {
-                res->location('localhost');
+                res->location('somedomain.com');
             }
             elsif($do eq 'body') {
-                res->body($_[0]);
+                res->body("body_has_this_as_content\n");
             }
             elsif($do eq 'title') {
                 stash title => 'hello world';

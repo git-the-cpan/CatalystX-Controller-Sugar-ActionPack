@@ -80,30 +80,32 @@ chain '' => sub {
 
 sub _find_template {
     my $path = shift;
-    my $base = c->path_to('root');
+    my @search_paths = (c->path_to('root'), c->path_to('root', 'base'));
 
     # get from cache
     if(my $template = $cache{$path}) {
-        if(-e "$base/$template") {
-            return $template;
+        if(-e $template->[0]) {
+            return $template->[1];
         }
         else {
             delete $cache{$path};
         }
     }
 
+    if(my $addtional = c->stash->{'additional_template_paths'}) {
+        unshift @search_paths, @$addtional;
+    }
+
     # find from disc
-    if(-e "$base/base/$path/default.tt") {
-        return $cache{$path} = $path ? "$path/default.tt" : "default.tt";
-    }
-    if(-e "$base/base/$path.tt") {
-        return $cache{$path} = "$path.tt";
-    }
-    if(-e "$base/$path/default.tt") {
-        return $cache{$path} = $path ? "$path/default.tt" : "default.tt";
-    }
-    if(-e "$base/$path.tt") {
-        return $cache{$path} = "$path.tt";
+    for my $base (@search_paths) {
+        if(-e "$base/$path/default.tt") {
+            $cache{$path} = [ "$base/$path/default.tt", $path ? "$path/default.tt" : "default.tt" ];
+            return $cache{$path}->[1];
+        }
+        elsif(-e "$base/$path.tt") {
+            $cache{$path} = [ "$base/$path.tt", "$path.tt" ];
+            return $cache{$path}->[1];
+        }
     }
 
     return;

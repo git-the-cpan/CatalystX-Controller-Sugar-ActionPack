@@ -42,7 +42,7 @@ Will:
 private end => sub {
     return if(req->method eq 'HEAD');
     return if(res->location);
-    return if(length res->body);
+    return if(res->body and length res->body);
 
     my $view_component;
 

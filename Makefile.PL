@@ -3,7 +3,7 @@ use inc::Module::Install;
 name q(CatalystX-Controller-Sugar-ActionPack);
 all_from q(lib/CatalystX/Controller/Sugar/ActionPack.pm);
 
-requires q(CatalystX::Controller::Sugar) => 0.0703;
+requires q(CatalystX::Controller::Sugar) => 0.08;
 requires q(File::Slurp) => 9999.10;
 test_requires q(Data::Dumper) => 2.1;
 test_requires q(Moose) => 0.94;

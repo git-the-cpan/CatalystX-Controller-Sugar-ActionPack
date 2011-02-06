@@ -1,8 +1,14 @@
 Revision history for CatalystX-Controller-Sugar-ActionPack
 
+0.04     Sun Feb  6 18:56:14 CET 2011
+       - Add will search "through additional_template_paths" as well
+         in ActionPack::Default::_find_template()
+       - Fix failing 10-end.t
+         http://www.cpantesters.org/cpan/report/b9c6a1a6-2e09-11e0-9f0e-0311f1b0ebf2
 
 0.0301   Sun Jun 13 18:45:51 CEST 2010
-       - Fix http://www.cpantesters.org/cpan/report/7170387
+       - Fix fix test result path on windows
+         http://www.cpantesters.org/cpan/report/7170387
 
 0.03     Thu Apr 15 00:06:36 CEST 2010
        - Fix /default will also look inside root/base/
