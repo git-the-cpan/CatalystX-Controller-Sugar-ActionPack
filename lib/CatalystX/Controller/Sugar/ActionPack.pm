@@ -6,7 +6,7 @@ CatalystX::Controller::Sugar::ActionPack - Cx::C::Sugar plugins
 
 =head1 VERSION
 
-0.04
+0.0401
 
 =head1 DESCRIPTION
 
@@ -35,7 +35,7 @@ to the web server.
 
 =cut
 
-our $VERSION = eval '0.04';
+our $VERSION = eval '0.0401';
 
 =head1 LICENSE
 

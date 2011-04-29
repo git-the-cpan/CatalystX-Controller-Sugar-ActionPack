@@ -12,6 +12,7 @@ Used to server custom error pages, which the webapp dispatch to.
 
 use Moose;
 use CatalystX::Controller::Sugar::Plugin;
+use CatalystX::Controller::Sugar::ActionPack::Default;
 
 =head1 VARIABLES
 
@@ -53,16 +54,17 @@ Affected stash variables:
 =cut
 
 chain error => sub {
-    my $template = shift || 'fallback';
+    my $error_id = shift || 'fallback';
     my $msg = shift || '';
-    my $status = $ERROR_STATUS{$template} || 500;
+    my $status = $ERROR_STATUS{$error_id} || 500;
+    my $template = CatalystX::Controller::Sugar::ActionPack::Default::_find_template("error/$error_id");
 
-    unless(-e c->config->{'root'} ."/error/$template.tt") {
-        report error => 'Could not find error template: %s', $template if c->debug;
-        $template = 'fallback';
+    unless($template) {
+        report error => 'Could not find error template: %s', $error_id if c->debug;
+        $template = 'error/fallback.tt';
     }
 
-    stash template => "error/$template.tt";
+    stash template => $template;
     stash title => "error - $status";
     stash error_message => $msg;
 

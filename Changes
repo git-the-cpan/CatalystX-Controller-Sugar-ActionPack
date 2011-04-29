@@ -1,5 +1,9 @@
 Revision history for CatalystX-Controller-Sugar-ActionPack
 
+0.0401   Fri Apr 29 21:48:28 CEST 2011
+       - Fix Error use ::Default::_find_template() as well
+         to search for error templates in custom directories.
+
 0.04     Sun Feb  6 18:56:14 CET 2011
        - Add will search "through additional_template_paths" as well
          in ActionPack::Default::_find_template()
